@@ -1,4 +1,6 @@
-$(document).on(`page:load page:change`, function() {
+$(document).on(`page:load page:change`, function(event) {
+    console.log("type", event.type)
+    console.log("which", event.which)
     if($(".step__sections .section--contact-information .layout-flex__item span").length > 0){
         $(".step__sections .section--contact-information .layout-flex__item span").text("Login to use your Plixlife Wallet Balance")
     }
@@ -101,4 +103,4 @@ $(document).on(`page:load`, function() {
     if ($(".farziwallet-div").length != 0 && $('input[type=checkbox][name=farziwallet]').prop("checked") == false) {
         $('input[type=checkbox][name=farziwallet]').click()
     }
-});
+})
