@@ -54,17 +54,11 @@ $(document).on(`page:load page:change`, function() {
         ">` + "₹" + response.wallet_balance + `</span></div>
           </div>`
             $(wallet_div).insertBefore($('.section.section--payment-method'))
-            if(flag_wallet_applied==true){
-                $('input[type=checkbox][name=farziwallet]').prop("checked",true)
-                $("input[type=checkbox][name=farziwallet]").css('background', '#03a196');
-            }
             $('input[type=checkbox][name=farziwallet]').on('change' , (function() {
                 $("input[type=checkbox][name=farziwallet]").css('background', '#03a196');
-                if (!this.checked){
-                    $(".tags-list .tag:last-child .tag__button").click()
-                }
                 if (this.checked && response.wallet_balance > 0) {
                     $("#checkout_reduction_code_mobile").css("color", "#ffffff")
+                    console.log($("#checkout_reduction_code_mobile").css("color"))
                     $("#checkout_reduction_code_mobile")[0].value = response.gc;
                     $("#checkout_reduction_code_mobile").parent().next().removeAttr("disabled").click();
                     $("#checkout_reduction_code_mobile").removeAttr("style")
@@ -75,6 +69,9 @@ $(document).on(`page:load page:change`, function() {
                                 var tag_new_text = "Wallet Applied"
                                 if (tag_text.startsWith("••••")) {
                                     $(this).find(".tag__wrapper .reduction-code span:first").text(tag_new_text)
+                                }
+                                if (tag_text.startsWith("Wallet Applied")) {
+                                    $(".farziwallet-div").hide()
                                 }
                                 var line_text = $(".total-line.total-line--reduction:last-child span:first").text()
                                 if (line_text.startsWith("Gift card")) {
