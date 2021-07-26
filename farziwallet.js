@@ -90,10 +90,17 @@ $(document).on(`page:load page:change`, function(event) {
                     , 100);
                 }
             }));
-            console.log("API")
+            if(event.type=="page:load"){
+                $('input[type=checkbox][name=farziwallet]').click()
+            }
         }).fail(function(xhr, status, error) {
             console.log(xhr.responseText)
         });
-        console.log("END")
     }
 });
+
+$(document).on(`page:load`, function() {
+    if ($(".farziwallet-div").length != 0 && $('input[type=checkbox][name=farziwallet]').prop("checked") == false) {
+        $('input[type=checkbox][name=farziwallet]').click()
+    }
+})
