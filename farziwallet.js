@@ -1,6 +1,4 @@
 $(document).on(`page:load page:change`, function(event) {
-    console.log("type", event.type)
-    console.log("which", event.which)
     if($(".step__sections .section--contact-information .layout-flex__item span").length > 0){
         $(".step__sections .section--contact-information .layout-flex__item span").text("Login to use your Plixlife Wallet Balance")
     }
@@ -34,30 +32,30 @@ $(document).on(`page:load page:change`, function(event) {
                 "Content-Type": "application/json"
             },
             "data": `{
-      "customer_id": ` + customer_id + `
-    }`,
+            "customer_id": ` + customer_id + `
+            }`,
         };
         $.ajax(settings).done(function(response) {
             var wallet_div = `<div class="farziwallet-div" style="
-            margin-top: 30px;
-            background: #fff;
-            background-clip: padding-box;
-            border: 1px solid #d9d9d9;
-            border-radius: 5px;
-            color: #545454;
-            padding: 1.14em;
-        ">
-          <input type="checkbox" name="farziwallet" value="yes" id="farziwallet" style="/* -webkit-appearance: checkbox; */width: 1.3em;height: 1.3em;background-color: #ffffff;border-radius: 50%;vertical-align: middle;border: 1px solid #d9d9d9;-webkit-appearance: none;outline: none;cursor: pointer;/* padding-right: 1.75em; */">
-          <label for="farziwallet" style="
-            font-weight: 500;
-            padding-left: .75em;
-        ">Use Wallet Balance</label><br>
-        <div style="padding-left: 2.3em;height: 30px;display: flex;align-items: center;"><img src="https://img.icons8.com/ios-glyphs/30/000000/wallet-app.png" style="
-        "><span style="
-            font-weight: 500;
-            padding-left: 12px;
-        ">` + "₹" + response.wallet_balance + `</span></div>
-          </div>`
+                margin-top: 30px;
+                background: #fff;
+                background-clip: padding-box;
+                border: 1px solid #d9d9d9;
+                border-radius: 5px;
+                color: #545454;
+                padding: 1.14em;
+            ">
+            <input type="checkbox" name="farziwallet" value="yes" id="farziwallet" style="/* -webkit-appearance: checkbox; */width: 1.3em;height: 1.3em;background-color: #ffffff;border-radius: 50%;vertical-align: middle;border: 1px solid #d9d9d9;-webkit-appearance: none;outline: none;cursor: pointer;/* padding-right: 1.75em; */">
+            <label for="farziwallet" style="
+                font-weight: 500;
+                padding-left: .75em;
+            ">Use Wallet Balance</label><br>
+            <div style="padding-left: 2.3em;height: 30px;display: flex;align-items: center;"><img src="https://img.icons8.com/ios-glyphs/30/000000/wallet-app.png" style="
+            "><span style="
+                font-weight: 500;
+                padding-left: 12px;
+            ">` + "₹" + response.wallet_balance + `</span></div>
+            </div>`
             $(wallet_div).insertBefore($('.section.section--payment-method'))
             if(flag_wallet_applied==true){
                 $('input[type=checkbox][name=farziwallet]').prop("checked",true)
@@ -92,9 +90,10 @@ $(document).on(`page:load page:change`, function(event) {
                     , 100);
                 }
             }));
-            ;
+            console.log("API")
         }).fail(function(xhr, status, error) {
             console.log(xhr.responseText)
         });
+        console.log("END")
     }
 });
