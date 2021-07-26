@@ -98,9 +98,3 @@ $(document).on(`page:load page:change`, function(event) {
         });
     }
 });
-
-$(document).on(`page:load`, function() {
-    if ($(".farziwallet-div").length != 0 && $('input[type=checkbox][name=farziwallet]').prop("checked") == false) {
-        $('input[type=checkbox][name=farziwallet]').click()
-    }
-})
