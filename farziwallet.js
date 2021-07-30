@@ -70,7 +70,9 @@ $(document).on(`page:load page:change`, function(event) {
                     $("#checkout_reduction_code_mobile").css("color", "#ffffff")
                     $("#checkout_reduction_code_mobile")[0].value = response.gc;
                     $("#checkout_reduction_code_mobile").parent().next().removeAttr("disabled").click();
-                    $("#checkout_reduction_code_mobile").removeAttr("style")
+                    setTimeout(function(){
+                        $("#checkout_reduction_code_mobile").removeAttr("style")
+                    }, 3000);
                     var tag_list_interval = setInterval(()=>{
                         if ($(".tags-list .tag:last-child").length > 0) {
                             $(".tags-list .tag:last-child").each(function() {
