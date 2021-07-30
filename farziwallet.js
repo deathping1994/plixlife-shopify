@@ -67,11 +67,11 @@ $(document).on(`page:load page:change`, function(event) {
                     $(".tags-list .tag:last-child .tag__button").click()
                 }
                 if (this.checked && response.wallet_balance > 0) {
-                    $("#checkout_reduction_code").css("color", "#ffffff")
-                    $("#checkout_reduction_code")[0].value = response.gc;
-                    $("#checkout_reduction_code").parent().next().removeAttr("disabled").click();
+                    $("#checkout_reduction_code_mobile").css("color", "#ffffff")
+                    $("#checkout_reduction_code_mobile")[0].value = response.gc;
+                    $("#checkout_reduction_code_mobile").parent().next().removeAttr("disabled").click();
                     setTimeout(function(){
-                        $("#checkout_reduction_code").removeAttr("style")
+                        $("#checkout_reduction_code_mobile").removeAttr("style")
                     }, 3000);
                     var tag_list_interval = setInterval(()=>{
                         if ($(".tags-list .tag:last-child").length > 0) {
