@@ -17,9 +17,8 @@ $(document).on(`page:load page:change`, function(event) {
             $(".tags-list .tag:first .tag__button").click()
         }
     }
-    if($('input[name="checkout[payment_gateway]"]:checked').val() != "64480837791"){
+    if($('input[name="checkout[payment_gateway]"]:checked').val() != "64480837791" && $(".reduction-code__text:first").text().length==0){
         $("#checkout_reduction_code_mobile")[0].value = "PREPAIDTEST";
         $("#checkout_reduction_code_mobile").parent().next().removeAttr("disabled").click();
     }
 });
-
