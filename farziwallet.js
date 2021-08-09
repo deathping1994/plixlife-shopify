@@ -23,7 +23,7 @@ $(document).on(`page:load page:change`, function(event) {
         })
     }
     if ($(".farziwallet-div").length == 0) {
-        var customer_id = Shopify.Checkout.customer.customer_id
+        var customer_id = $("#customerId").text();
         var settings = {
             "url": "https://farzipromo-api-stage.farziengineer.co/walletbalance",
             "method": "POST",
